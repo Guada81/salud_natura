@@ -73,7 +73,7 @@ main {
     font-weight: bold;
 }
 
-.paso-contenido { flex: 1; }
+.paso-contenido { flex: 1; min-width: 0; }
 .paso-contenido h3 { color: #2d5016; margin-bottom: 0.6rem; font-size: 1.2rem; }
 .paso-contenido ol, .paso-contenido ul { margin: 0.5rem 0 0.5rem 1.5rem; }
 .paso-contenido li { margin-bottom: 0.4rem; }

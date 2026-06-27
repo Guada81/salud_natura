@@ -23,13 +23,16 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
 async def home(request: Request):
-    conn = get_db()
-    remedios = conn.execute("SELECT * FROM base_conocimiento_salud").fetchall()
-    conn.close()
     return templates.TemplateResponse("index.html", {
         "request": request,
         "settings": settings,
-        "remedios": remedios,
+    })
+
+
+@app.get("/grimorio")
+async def grimorio(request: Request):
+    return templates.TemplateResponse("grimorio.html", {
+        "request": request,
     })
 
 

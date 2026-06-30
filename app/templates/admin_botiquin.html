@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botiquín — Admin {{ settings.app_name }}</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>🌿 Admin</h2>
+            <p>{{ settings.app_name }}</p>
+        </div>
+        <ul>
+            <li><a href="/admin">🏠 Inicio</a></li>
+            <li><a href="/admin/remedios">🌱 Remedios</a></li>
+            <li><a href="/admin/botiquin" class="active">🩹 Botiquín</a></li>
+            <li><a href="/admin/usuarios">👥 Usuarios</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/">← Volver al sitio</a>
+        </div>
+    </nav>
+    <main class="content">
+        <div class="page-header">
+            <h1>🩹 Botiquín</h1>
+            <button class="btn btn-primary" onclick="abrirModal()">+ Nueva Dolencia</button>
+        </div>
+
+        {% if mensaje %}
+        <div class="alert">{{ mensaje }}</div>
+        {% endif %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Emoji</th>
+                    <th>Dolencia</th>
+                    <th>Categoría</th>
+                    <th>Planta</th>
+                    <th>Nombre Científico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in items %}
+                <tr>
+                    <td>{{ r.id }}</td>
+                    <td style="font-size:1.4rem">{{ r.emoji or '-' }}</td>
+                    <td>{{ r.dolencia }}</td>
+                    <td>{{ r.categoria or '-' }}</td>
+                    <td>{{ r.planta or '-' }}</td>
+                    <td><em>{{ r.nombre_cientifico or '-' }}</em></td>
+                    <td class="acciones">
+                        <button class="btn btn-sm" onclick="editar({{ r.id }}, '{{ r.dolencia | e }}', '{{ (r.emoji or '') | e }}', '{{ (r.categoria or '') | e }}', '{{ (r.planta or '') | e }}', '{{ (r.nombre_cientifico or '') | e }}', '{{ (r.preparacion or '') | replace("'", "\\'") | e }}', '{{ (r.nota or '') | replace("'", "\\'") | e }}')">✏️</button>
+                        <form method="post" action="/admin/botiquin/{{ r.id }}/eliminar" style="display:inline" onsubmit="return confirm('¿Eliminar?')">
+                            <button class="btn btn-sm btn-danger">🗑️</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% if not items %}
+                <tr><td colspan="7" class="empty">No hay dolencias cargadas</td></tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <div id="modal" class="modal" style="display:none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-titulo">Nueva Dolencia</h2>
+                    <button class="btn-close" onclick="cerrarModal()">✕</button>
+                </div>
+                <form method="post" action="/admin/botiquin/guardar">
+                    <input type="hidden" name="id" id="f_id">
+                    <label>Dolencia *
+                        <input type="text" name="dolencia" id="f_dolencia" required>
+                    </label>
+                    <label>Emoji
+                        <input type="text" name="emoji" id="f_emoji" placeholder="🌿">
+                    </label>
+                    <label>Categoría
+                        <select name="categoria" id="f_categoria">
+                            <option value="d">Dolor & Inflamación</option>
+                            <option value="di">Sistema Digestivo</option>
+                            <option value="r">Sistema Respiratorio</option>
+                            <option value="e">Salud Emocional</option>
+                            <option value="p">Piel & Heridas</option>
+                            <option value="c">Corazón & Órganos</option>
+                        </select>
+                    </label>
+                    <label>Planta
+                        <input type="text" name="planta" id="f_planta">
+                    </label>
+                    <label>Nombre Científico
+                        <input type="text" name="nombre_cientifico" id="f_cientifico">
+                    </label>
+                    <label>Preparación
+                        <textarea name="preparacion" id="f_preparacion" rows="4"></textarea>
+                    </label>
+                    <label>Nota / Advertencia
+                        <textarea name="nota" id="f_nota" rows="3"></textarea>
+                    </label>
+                    <div class="modal-actions">
+                        <button type="button" class="btn" onclick="cerrarModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    function abrirModal() {
+        document.getElementById('modal-titulo').textContent = 'Nueva Dolencia';
+        ['id','dolencia','emoji','planta','cientifico','preparacion','nota'].forEach(f => {
+            const el = document.getElementById('f_'+f);
+            if (el) el.value = '';
+        });
+        document.getElementById('f_categoria').value = 'd';
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function editar(id, dolencia, emoji, cat, planta, cient, prep, nota) {
+        document.getElementById('modal-titulo').textContent = 'Editar Dolencia';
+        document.getElementById('f_id').value = id;
+        document.getElementById('f_dolencia').value = dolencia;
+        document.getElementById('f_emoji').value = emoji;
+        document.getElementById('f_categoria').value = cat;
+        document.getElementById('f_planta').value = planta;
+        document.getElementById('f_cientifico').value = cient;
+        document.getElementById('f_preparacion').value = prep;
+        document.getElementById('f_nota').value = nota;
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function cerrarModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+    </script>
+</body>
+</html>

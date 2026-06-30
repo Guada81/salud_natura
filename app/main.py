@@ -62,6 +62,14 @@ async def listar_remedios():
     return {"ok": True, "data": remedios}
 
 
+@app.get("/api/botiquin")
+async def listar_botiquin():
+    conn = get_db()
+    rows = [dict(r) for r in conn.execute("SELECT * FROM botiquin ORDER BY id").fetchall()]
+    conn.close()
+    return {"ok": True, "data": rows}
+
+
 @app.get("/api/plantas")
 async def listar_plantas():
     conn = get_db()
@@ -170,6 +178,54 @@ async def admin_remedios_eliminar(id_remedio: int):
     conn.commit()
     conn.close()
     return RedirectResponse("/admin/remedios?mensaje=Remedio eliminado", status_code=303)
+
+
+@app.get("/admin/botiquin")
+async def admin_botiquin(request: Request, mensaje: Optional[str] = None):
+    conn = get_db()
+    items = conn.execute("SELECT * FROM botiquin ORDER BY id").fetchall()
+    conn.close()
+    return templates.TemplateResponse("admin_botiquin.html", {
+        "request": request, "settings": settings, "items": items, "mensaje": mensaje,
+    })
+
+
+@app.post("/admin/botiquin/guardar")
+async def admin_botiquin_guardar(
+    dolencia: str = Form(...),
+    emoji: str = Form(""),
+    categoria: str = Form(""),
+    planta: str = Form(""),
+    nombre_cientifico: str = Form(""),
+    preparacion: str = Form(""),
+    nota: str = Form(""),
+    id: str = Form(""),
+):
+    conn = get_db()
+    if id:
+        conn.execute(
+            "UPDATE botiquin SET dolencia=?, emoji=?, categoria=?, planta=?, nombre_cientifico=?, preparacion=?, nota=? WHERE id=?",
+            (dolencia, emoji, categoria, planta, nombre_cientifico, preparacion, nota, int(id)),
+        )
+        mensaje = "Dolencia actualizada"
+    else:
+        conn.execute(
+            "INSERT INTO botiquin (dolencia, emoji, categoria, planta, nombre_cientifico, preparacion, nota) VALUES (?,?,?,?,?,?,?)",
+            (dolencia, emoji, categoria, planta, nombre_cientifico, preparacion, nota),
+        )
+        mensaje = "Dolencia creada"
+    conn.commit()
+    conn.close()
+    return RedirectResponse(f"/admin/botiquin?mensaje={mensaje}", status_code=303)
+
+
+@app.post("/admin/botiquin/{id}/eliminar")
+async def admin_botiquin_eliminar(id: int):
+    conn = get_db()
+    conn.execute("DELETE FROM botiquin WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+    return RedirectResponse("/admin/botiquin?mensaje=Dolencia eliminada", status_code=303)
 
 
 @app.get("/admin/usuarios")

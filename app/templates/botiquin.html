@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -365,174 +365,66 @@
     c:  { label:'Corazón & Órganos',    cls:'cat-c'  },
   };
 
-  const R = [
-    // ── DOLOR & INFLAMACIÓN ──
-    { d:'Dolor de cabeza',      i:'🤕', c:'d',
-      p:'Sauce Blanco', l:'Salix alba',
-      prep:'Hierve 1 cucharadita de corteza seca en 300 ml de agua durante 10 min a fuego lento. Cuela, deja templar y bebe. Repite 2-3 veces al día según necesidad.',
-      n:'Evitar si eres alérgico a la aspirina, tomas anticoagulantes o tienes úlcera gástrica.' },
-    { d:'Dolor muscular',       i:'💪', c:'d',
-      p:'Árnica', l:'Arnica montana',
-      prep:'Uso externo únicamente. Prepara infusión concentrada con 2 cucharadas de flores en 200 ml de agua. Empapa una gasa y aplica en compresa sobre la zona afectada 20 min, 3 veces al día.',
-      n:'Nunca ingerir ni aplicar sobre piel abierta, heridas o mucosas. Solo uso tópico.' },
-    { d:'Dolor articular',      i:'🦵', c:'d',
-      p:'Harpagofito', l:'Harpagophytum procumbens',
-      prep:'Hierve 1 cucharada de raíz seca triturada en 250 ml de agua a fuego suave 10 min. Deja reposar 5 min tapado. Cuela y bebe. 2 veces al día durante al menos 4 semanas.',
-      n:'No usar con úlcera gástrica, embarazo o medicación antihipertensiva sin consultar al médico.' },
-    { d:'Inflamación crónica',  i:'🔥', c:'d',
-      p:'Cúrcuma', l:'Curcuma longa',
-      prep:'Hierve 1 rodaja de cúrcuma fresca con una pizca de pimienta negra en 400 ml de agua 10 min. Cuela, añade miel al gusto. 2 tazas al día durante mínimo 3 semanas.',
-      n:'La pimienta negra aumenta la absorción de curcumina hasta un 2.000%. Evitar en cálculos biliares.' },
-    { d:'Cólicos menstruales',  i:'🌸', c:'d',
-      p:'Cardo Mariano', l:'Silybum marianum',
-      prep:'Muele 1 cucharadita de semillas. Infusiona en 250 ml de agua caliente 10 min. Bebe 3 tazas al día desde 2 días antes del período hasta el final.',
-      n:'La silimarina actúa como antiespasmódico y antiinflamatorio uterino natural.' },
-    { d:'Dolor de garganta',    i:'😮', c:'d',
-      p:'Salvia', l:'Salvia officinalis',
-      prep:'Infusiona 2 cucharaditas de hojas secas en 200 ml de agua caliente 10 min. Usa templada para gárgaras de 30 seg. No tragar si está muy concentrada. Repite cada 2-3 horas.',
-      n:'Sus aceites esenciales (tujona, cineol) tienen propiedades antisépticas potentes y comprobadas.' },
-    // ── SISTEMA DIGESTIVO ──
-    { d:'Acidez estomacal',     i:'🫁', c:'di',
-      p:'Malvavisco', l:'Althaea officinalis',
-      prep:'Maceración fría: 1 cucharada de raíz seca en 200 ml de agua fría durante 8 horas. Nunca hervir — el calor destruye los mucílagos activos. Cuela y bebe antes de las comidas.',
-      n:'El gel mucilaginoso crea una barrera protectora sobre la mucosa del esófago y el estómago.' },
-    { d:'Digestión lenta',      i:'🍽️', c:'di',
-      p:'Hinojo', l:'Foeniculum vulgare',
-      prep:'Machaca 1 cucharadita de semillas de hinojo en un mortero. Infusiona en 250 ml de agua caliente 6-7 min. Bebe caliente después de cada comida principal.',
-      n:'Alivia simultáneamente la pesadez, la hinchazón, los gases y los espasmos intestinales.' },
-    { d:'Náuseas',              i:'🤢', c:'di',
-      p:'Jengibre', l:'Zingiber officinale',
-      prep:'Hierve 3-4 rodajas de jengibre fresco en 300 ml de agua 5 min. Deja templar y bebe a sorbos lentos. Alternativa rápida: mastica un trozo pequeño de raíz fresca.',
-      n:'Tan eficaz como medicamentos convencionales para náuseas del embarazo y quimioterapia.' },
-    { d:'Gases intestinales',   i:'💨', c:'di',
-      p:'Anís Verde', l:'Pimpinella anisum',
-      prep:'Infusiona 1 cucharadita de semillas de anís en 250 ml de agua caliente 6 min. Bebe caliente después de las comidas. Añade una hoja de menta fresca si deseas.',
-      n:'El anetol relaja el músculo liso intestinal y facilita la expulsión de gases acumulados.' },
-    { d:'Mareos y vértigos',    i:'😵', c:'di',
-      p:'Jengibre', l:'Zingiber officinale',
-      prep:'Mastica un trozo de raíz fresca 30 min antes de viajar. O infusiona 3 rodajas en 250 ml de agua 5 min y bebe antes del trayecto.',
-      n:'Tan eficaz como el dimenhidrinato para el mareo por movimiento, sin somnolencia.' },
-    { d:'Hígado graso',         i:'🫀', c:'di',
-      p:'Cardo Mariano', l:'Silybum marianum',
-      prep:'Muele las semillas y disuelve 1 cucharada en un vaso de agua tibia. Toma en ayunas. O infusiona semillas trituradas en agua caliente 10 min. 3 veces al día, durante 4-8 semanas.',
-      n:'La silimarina protege y regenera activamente los hepatocitos dañados por grasa acumulada.' },
-    // ── SISTEMA RESPIRATORIO ──
-    { d:'Resfriado común',      i:'🤧', c:'r',
-      p:'Saúco', l:'Sambucus nigra',
-      prep:'Infusiona 2 cucharadas de flores secas de saúco en 350 ml de agua caliente 10 min. Bebe caliente 3 tazas al día. Más eficaz en las primeras 24-48 horas de síntomas.',
-      n:'Sus flavonoides impiden activamente que los virus respiratorios penetren en las células.' },
-    { d:'Tos seca',             i:'😤', c:'r',
-      p:'Malvavisco', l:'Althaea officinalis',
-      prep:'Infusiona flores y hojas de malvavisco en 300 ml de agua caliente 10 min sin hervir. Bebe caliente a sorbos lentos añadiendo miel de tomillo. 4-5 tazas al día.',
-      n:'Los mucílagos recubren la mucosa respiratoria irritada como una película protectora calmante.' },
-    { d:'Fiebre',               i:'🌡️', c:'r',
-      p:'Tilo', l:'Tilia europaea',
-      prep:'Infusiona 2 cucharadas de flores de tilo en 300 ml de agua caliente 10 min. Tapa. Bebe caliente para inducir sudoración suave. 3 tazas al día mientras dure la fiebre.',
-      n:'Regula la temperatura de forma natural y progresiva. No usar en menores de 3 años.' },
-    // ── SALUD EMOCIONAL ──
-    { d:'Estrés crónico',       i:'😰', c:'e',
-      p:'Melisa', l:'Melissa officinalis',
-      prep:'Calienta agua a 90°C (sin llegar a hervir). Infusiona 1 cucharada de hojas frescas durante 7 min. Tapa para conservar los aceites esenciales volátiles. 3 tazas al día.',
-      n:'El ácido rosmarínico reduce el cortisol en sangre demostrado en estudios clínicos controlados.' },
-    { d:'Ansiedad',             i:'😟', c:'e',
-      p:'Pasiflora', l:'Passiflora incarnata',
-      prep:'Infusiona 1 cucharada de partes aéreas secas en 250 ml de agua caliente 8-10 min. Bebe 2-3 tazas al día. La última taza, 1 hora antes de acostarte.',
-      n:'Actúa sobre receptores GABA con efecto ansiolítico suave. No crea dependencia ni tolerancia.' },
-    { d:'Insomnio',             i:'😴', c:'e',
-      p:'Valeriana', l:'Valeriana officinalis',
-      prep:'Decocción: 1 cucharadita de raíz seca triturada en 300 ml de agua 5 min. Deja reposar tapado 10 min. Cuela y bebe 30-60 min antes de acostarte. No superar la dosis indicada.',
-      n:'El efecto óptimo se alcanza tras 2-4 semanas de uso regular. No produce somnolencia diurna.' },
-    { d:'Problemas de memoria', i:'🧠', c:'e',
-      p:'Ginkgo Biloba', l:'Ginkgo biloba',
-      prep:'Infusiona 1 cucharada de hojas secas en 250 ml de agua caliente 10 min. Bebe 2 tazas al día: una por la mañana y otra al mediodía. Mínimo 6-8 semanas para evaluar el efecto.',
-      n:'Mejora la microcirculación cerebral. No combinar con anticoagulantes ni antiagregantes.' },
-    { d:'Fatiga crónica',       i:'😫', c:'e',
-      p:'Eleuterococo', l:'Eleutherococcus senticosus',
-      prep:'Decocción de 1 cucharadita de raíz seca en 300 ml de agua 15 min. Bebe por la mañana en ayunas. Sigue ciclos de 3 semanas de toma seguidas de 1 semana de descanso.',
-      n:'Adaptógeno que regula la respuesta al estrés físico y mental sin estimulantes ni efectos rebote.' },
-    { d:'Depresión leve',       i:'🌤️', c:'e',
-      p:'Hierba de San Juan', l:'Hypericum perforatum',
-      prep:'Infusiona 1 cucharada de flores secas en 250 ml de agua caliente 10 min. Bebe 3 tazas al día. Se necesitan mínimo 4-6 semanas de uso continuado para ver efecto terapéutico.',
-      n:'No combinar con antidepresivos, anticonceptivos, anticoagulantes ni antivirales. Puede causar fotosensibilidad.' },
-    // ── PIEL & HERIDAS ──
-    { d:'Heridas leves',        i:'🩹', c:'p',
-      p:'Caléndula', l:'Calendula officinalis',
-      prep:'Prepara infusión concentrada con 3 cucharadas de flores en 200 ml de agua. Empapa una gasa y aplica como compresa sobre la herida durante 20 min. Repite 3-4 veces al día.',
-      n:'Antiséptica, antiinflamatoria y cicatrizante potente. Una de las plantas tópicas más versátiles.' },
-    { d:'Quemaduras leves',     i:'🔆', c:'p',
-      p:'Aloe Vera', l:'Aloe barbadensis',
-      prep:'Corta una hoja de aloe vera. Aplica el gel transparente del interior directamente sobre la quemadura. No cubrir. Deja actuar. Repite 3-4 veces al día hasta la recuperación.',
-      n:'Solo para quemaduras de primer grado (sin ampollas). Quemaduras graves requieren atención médica urgente.' },
-    { d:'Picaduras de insecto', i:'🦟', c:'p',
-      p:'Llantén', l:'Plantago major',
-      prep:'Estruja una hoja fresca de llantén entre los dedos para liberar el jugo y aplica directamente sobre la picadura. Mantén 10-15 min con presión suave. Repite según necesidad.',
-      n:'Antihistamínico y antiinflamatorio natural. Actúa en minutos sobre el picor, el enrojecimiento y la hinchazón.' },
-    // ── CORAZÓN & ÓRGANOS ──
-    { d:'Retención de líquidos',i:'💧', c:'c',
-      p:'Diente de León', l:'Taraxacum officinale',
-      prep:'Infusiona 1 cucharada de hojas secas en 250 ml de agua caliente 10 min. Bebe 3 tazas al día repartidas. También puedes consumir las hojas frescas y tiernas en ensalada.',
-      n:'Diurético natural que, a diferencia de los fármacos, no provoca pérdida de potasio.' },
-    { d:'Infección urinaria',   i:'🫧', c:'c',
-      p:'Arándano Rojo', l:'Vaccinium macrocarpon',
-      prep:'Bebe 200 ml de zumo de arándano rojo sin azúcar 3 veces al día. O infusiona hojas secas 10 min. Acompaña siempre con 2 litros de agua al día.',
-      n:'Preventivo y coadyuvante — no reemplaza a los antibióticos si hay infección activa diagnosticada.' },
-    { d:'Cálculos renales',     i:'🪨', c:'c',
-      p:'Cola de Caballo', l:'Equisetum arvense',
-      prep:'Infusiona 1 cucharada de la planta seca en 300 ml de agua caliente 10-15 min. Bebe 3 tazas al día siempre con abundante agua entre tomas (mínimo 2 litros al día).',
-      n:'Acción preventiva y disolvente suave. Ante dolor renal intenso o hematuria, acude a urgencias.' },
-    { d:'Presión alta',         i:'❤️', c:'c',
-      p:'Olivo', l:'Olea europaea',
-      prep:'Infusiona 10-15 hojas de olivo secas en 300 ml de agua caliente 10-15 min. Bebe 2-3 tazas al día. El efecto es acumulativo: se aprecia mejoría en 2-4 semanas de uso regular.',
-      n:'Complemento natural — nunca suspender la medicación antihipertensiva sin supervisión médica.' },
-    { d:'Colesterol elevado',   i:'🩸', c:'c',
-      p:'Ajo', l:'Allium sativum',
-      prep:'Consume 1-2 dientes de ajo crudo al día en ayunas, con agua. El alicina se activa al cortar o machacar. O infusiona ajo machacado en agua templada 5 min. El efecto es a largo plazo.',
-      n:'La acción hipocolesterolemiante es significativamente mayor con ajo crudo que cocinado.' },
-  ];
+  let R = [];
 
-  // ── RENDER ──
-  const grid = document.getElementById('bqGrid');
-  R.forEach((r,i)=>{
-    const cat = CATS[r.c];
-    const el = document.createElement('div');
-    el.className = 'bq-card';
-    el.dataset.cat = r.c;
-    el.id = `bq-${i}`;
-    el.innerHTML = `
-      <div class="bq-card-head" onclick="toggle(${i})">
-        <span class="bq-icon">${r.i}</span>
-        <div class="bq-card-info">
-          <div class="bq-card-name">${r.d}</div>
-          <span class="bq-badge ${cat.cls}">${cat.label}</span>
+  function renderBotiquin() {
+    const grid = document.getElementById('bqGrid');
+    grid.innerHTML = '';
+    R.forEach((r,i)=>{
+      const cat = CATS[r.categoria] || CATS['d'];
+      const el = document.createElement('div');
+      el.className = 'bq-card';
+      el.dataset.cat = r.categoria;
+      el.id = `bq-${i}`;
+      el.innerHTML = `
+        <div class="bq-card-head" onclick="toggle(${i})">
+          <span class="bq-icon">${r.emoji}</span>
+          <div class="bq-card-info">
+            <div class="bq-card-name">${r.dolencia}</div>
+            <span class="bq-badge ${cat.cls}">${cat.label}</span>
+          </div>
         </div>
-      </div>
-      <span class="bq-arrow" onclick="toggle(${i})">▾</span>
-      <div class="bq-detail" id="dt-${i}">
-        <div class="bq-detail-in">
-          <div class="bq-planta">🌿 ${r.p}</div>
-          <div class="bq-lat">${r.l}</div>
-          <div class="bq-label">Preparación</div>
-          <div class="bq-prep">${r.prep}</div>
-          <div class="bq-nota">${r.n}</div>
-          <button class="bq-ficha-btn" onclick="abrirFicha(${i})">📋 Ver ficha completa</button>
-        </div>
-      </div>`;
-    grid.appendChild(el);
-  });
+        <span class="bq-arrow" onclick="toggle(${i})">▾</span>
+        <div class="bq-detail" id="dt-${i}">
+          <div class="bq-detail-in">
+            <div class="bq-planta">🌿 ${r.planta}</div>
+            <div class="bq-lat">${r.nombre_cientifico}</div>
+            <div class="bq-label">Preparacion</div>
+            <div class="bq-prep">${r.preparacion}</div>
+            <div class="bq-nota">${r.nota}</div>
+            <button class="bq-ficha-btn" onclick="abrirFicha(${i})">Ver ficha completa</button>
+          </div>
+        </div>`;
+      grid.appendChild(el);
+    });
+  }
+
+  async function cargarBotiquin() {
+    try {
+      const resp = await fetch('/api/botiquin');
+      const json = await resp.json();
+      if (json.ok && json.data.length) R = json.data;
+    } catch(e) {
+      console.warn('No se pudo cargar el botiquin desde la API:', e);
+    }
+    renderBotiquin();
+  }
+
+  cargarBotiquin();
 
   function abrirFicha(i){
     const r = R[i];
-    const cat = CATS[r.c];
-    document.getElementById('fpIcon').textContent = r.i;
+    const cat = CATS[r.categoria] || CATS['d'];
+    document.getElementById('fpIcon').textContent = r.emoji;
     document.getElementById('fpCat').textContent = cat.label;
-    document.getElementById('fpDolencia').textContent = r.d;
-    document.getElementById('fpPlanta').textContent = '🌿 ' + r.p;
-    document.getElementById('fpLat').textContent = r.l;
+    document.getElementById('fpDolencia').textContent = r.dolencia;
+    document.getElementById('fpPlanta').textContent = '🌿 ' + r.planta;
+    document.getElementById('fpLat').textContent = r.nombre_cientifico;
     const badge = document.getElementById('fpBadge');
     badge.textContent = cat.label;
-    badge.className = 'fp-head-badge bq-badge ' + 'cat-' + r.c;
-    document.getElementById('fpPrep').textContent = r.prep;
-    document.getElementById('fpNota').textContent = r.n;
+    badge.className = 'fp-head-badge bq-badge ' + 'cat-' + r.categoria;
+    document.getElementById('fpPrep').textContent = r.preparacion;
+    document.getElementById('fpNota').textContent = r.nota;
     document.getElementById('fichaOverlay').classList.add('visible');
     document.body.style.overflow = 'hidden';
   }

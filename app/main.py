@@ -36,6 +36,11 @@ async def grimorio(request: Request):
     })
 
 
+@app.get("/botiquin")
+async def botiquin(request: Request):
+    return templates.TemplateResponse("botiquin.html", {"request": request})
+
+
 @app.get("/taller")
 async def taller(request: Request):
     return templates.TemplateResponse("taller.html", {
@@ -55,6 +60,17 @@ async def listar_remedios():
     remedios = [dict(r) for r in conn.execute("SELECT * FROM base_conocimiento_salud").fetchall()]
     conn.close()
     return {"ok": True, "data": remedios}
+
+
+@app.get("/api/plantas")
+async def listar_plantas():
+    conn = get_db()
+    rows = [dict(r) for r in conn.execute("SELECT * FROM base_conocimiento_salud ORDER BY id_remedio").fetchall()]
+    conn.close()
+    for r in rows:
+        img_url = r.get("imagen_url") or ""
+        r["imagen"] = img_url.split("/")[-1] if img_url else ""
+    return {"ok": True, "plantas": rows}
 
 
 @app.get("/api/remedios/{id_remedio}")

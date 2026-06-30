@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Salud Natura – Sabiduría Ancestral de la Tierra</title>
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
+  <!-- HEADER / NAV -->
   <header>
     <nav class="navbar">
       <div class="logo">
         <div class="logo-img-wrap">
-          <img src="/static/img/logo.jpg" alt="Logo Salud Natura" class="logo-img" />
+          <img src="logo.jpg" alt="Logo Salud Natura" class="logo-img" />
         </div>
         <div class="logo-text">
           <span class="logo-main">Salud Natura</span>
@@ -25,26 +26,30 @@
         <li><a href="#pilares">Filosofía</a></li>
         <li><a href="#grimorio">El Grimorio</a></li>
         <li><a href="#hierbas">Hierbas</a></li>
+        <li><a href="botiquin.html">Botiquín</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
       <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <a href="grimorio.html#registro" class="btn-registro-nav" onclick="sessionStorage.setItem('abrirRegistro','1')">Registrarse</a>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section id="inicio" class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-logo-wrap">
-        <img src="/static/img/logo.jpg" alt="Logo Salud Natura" class="hero-logo" />
+        <img src="logo.jpg" alt="Logo Salud Natura" class="hero-logo" />
       </div>
       <h1 class="hero-title">Bienvenidos al Grimorio<br><span>de Salud Natura</span></h1>
       <p class="hero-subtitle">Sabiduría Ancestral de la Tierra</p>
-      <p class="hero-quote">"Conocerse a uno mismo es la verdadera sabiduría."<br><em>— Lao Tsé</em></p>
       <a href="#grimorio" class="btn-primary">Explorar el Grimorio</a>
+      <p class="hero-quote">"Conocerse a uno mismo es la verdadera sabiduría."<br><em>— Lao Tsé</em></p>
     </div>
     <div class="scroll-indicator">↓</div>
   </section>
 
+  <!-- PILARES -->
   <section id="pilares" class="pilares">
     <div class="container">
       <h2 class="section-title">Nuestra Filosofía</h2>
@@ -69,6 +74,7 @@
     </div>
   </section>
 
+  <!-- GRIMORIO INTRO -->
   <section id="grimorio" class="grimorio-intro">
     <div class="container">
       <div class="grimorio-content">
@@ -76,11 +82,11 @@
           <span class="eyebrow">El Grimorio Digital</span>
           <h2>Un Catálogo Vivo<br>de Sabiduría Verde</h2>
           <p>El Grimorio de Salud Natura es un catálogo digital interactivo que preserva y difunde el conocimiento ancestral de las plantas medicinales. Cada hierba documentada es un puente entre el pasado y el presente, entre la ciencia y la tradición.</p>
-          <p>21 plantas. 7 lotes. Un universo de posibilidades naturales, presentado con rigor científico y respeto por las tradiciones milenarias.</p>
-          <a href="#hierbas" class="btn-secondary">Ver las 21 Hierbas</a>
+          <p id="grimorio-desc">Un universo de posibilidades naturales, presentado con rigor científico y respeto por las tradiciones milenarias.</p>
+          <a href="#hierbas" class="btn-secondary" id="btn-ver-hierbas">Ver las Hierbas</a>
         </div>
         <div class="grimorio-visual">
-          <a href="/grimorio" class="book-icon" title="Abrir el Grimorio">
+          <a href="grimorio.html" class="book-icon" title="Abrir el Grimorio">
             <div class="book-cover">
               <div class="book-spine-bar"></div>
               <div class="book-corners">
@@ -89,7 +95,7 @@
               </div>
               <div class="book-cover-inner">
                 <div class="book-medallion">
-                  <img src="/static/img/logo.jpg" alt="Logo"/>
+                  <img src="logo.jpg" alt="Logo"/>
                 </div>
                 <div class="book-divider"></div>
                 <p class="book-title">Grimorio<br>Salud Natura</p>
@@ -103,76 +109,341 @@
     </div>
   </section>
 
+  <!-- HIERBAS / LOTES -->
   <section id="hierbas" class="hierbas">
     <div class="container">
-      <h2 class="section-title">Las 21 Hierbas del Grimorio</h2>
-      <p class="section-subtitle">Organizadas en siete lotes para una exploración ordenada del conocimiento ancestral</p>
-      <div class="lotes-grid">
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote I</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=0"><img class="hierba-icon" src="/static/img/manzanilla_icon.jpg" alt="Manzanilla"/> Manzanilla</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=1"><img class="hierba-icon" src="/static/img/menta_icon.jpg" alt="Menta"/> Menta</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=2"><img class="hierba-icon" src="/static/img/lavanda_icon.jpg" alt="Lavanda"/> Lavanda</a></li>
-          </ul>
-        </div>
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote II</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=3"><img class="hierba-icon" src="/static/img/romero_icon.jpg" alt="Romero"/> Romero</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=4"><img class="hierba-icon" src="/static/img/curcuma_icon.jpg" alt="Cúrcuma"/> Cúrcuma</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=5"><img class="hierba-icon" src="/static/img/jengibre_icon.jpg" alt="Jengibre"/> Jengibre</a></li>
-          </ul>
-        </div>
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote III</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=6"><img class="hierba-icon" src="/static/img/eucalipto_icon.jpg" alt="Eucalipto"/> Eucalipto</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=7"><img class="hierba-icon" src="/static/img/valeriana_icon.jpg" alt="Valeriana"/> Valeriana</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=8"><img class="hierba-icon" src="/static/img/cola_caballo_icon.jpg" alt="Cola de Caballo"/> Cola de Caballo</a></li>
-          </ul>
-        </div>
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote IV</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=9"><img class="hierba-icon" src="/static/img/calendula_icon.jpg" alt="Caléndula"/> Caléndula</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=10"><img class="hierba-icon" src="/static/img/tomillo_icon.jpg" alt="Tomillo"/> Tomillo</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=11"><img class="hierba-icon" src="/static/img/pasiflora_icon.jpg" alt="Pasiflora"/> Pasiflora</a></li>
-          </ul>
-        </div>
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote V</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=12"><img class="hierba-icon" src="/static/img/diente_leon_icon.jpg" alt="Diente de León"/> Diente de León</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=13"><img class="hierba-icon" src="/static/img/boldo_icon.jpg" alt="Boldo"/> Boldo</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=14"><img class="hierba-icon" src="/static/img/ortiga_icon.jpg" alt="Ortiga"/> Ortiga</a></li>
-          </ul>
-        </div>
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote VI</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=15"><img class="hierba-icon" src="/static/img/salvia_icon.jpg" alt="Salvia"/> Salvia</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=16"><img class="hierba-icon" src="/static/img/anis_icon.jpg" alt="Anís Verde"/> Anís Verde</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=17"><img class="hierba-icon" src="/static/img/melisa_icon.jpg" alt="Melisa"/> Melisa</a></li>
-          </ul>
-        </div>
-        <div class="lote-card">
-          <div class="lote-header"><span class="lote-num">Lote VII</span></div>
-          <ul>
-            <li><a class="hierba-link" href="/grimorio?h=18"><img class="hierba-icon" src="/static/img/echinacea_icon.jpg" alt="Equinácea"/> Equinácea</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=19"><img class="hierba-icon" src="/static/img/te_verde_icon.jpg" alt="Té Verde"/> Té Verde</a></li>
-            <li><a class="hierba-link" href="/grimorio?h=20"><img class="hierba-icon" src="/static/img/ginkgo_icon.jpg" alt="Ginkgo Biloba"/> Ginkgo Biloba</a></li>
-          </ul>
-        </div>
+      <h2 class="section-title" id="hierbas-titulo">Las Hierbas del Grimorio</h2>
+      <p class="section-subtitle" id="hierbas-subtitulo">Organizadas en lotes para una exploración ordenada del conocimiento ancestral</p>
+
+      <div class="lotes-grid" id="lotes-grid">
         <div class="lote-card lote-cta">
-          <div class="lote-header"><span class="lote-num">+21</span></div>
-          <p>El Grimorio crece constantemente con nueva sabiduría ancestral</p>
-          <a href="#contacto" class="btn-primary small">Contactanos</a>
+          <div class="lote-header"><span class="lote-num">...</span></div>
+          <p>Cargando el Grimorio</p>
         </div>
+      </div>
+
+      <script>
+      (function(){
+        const ROMANOS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'];
+        fetch('/api/plantas').then(r=>r.json()).then(data=>{
+          const plantas = data.plantas || [];
+          const total = plantas.length;
+          const porLote = 3;
+          const grid = document.getElementById('lotes-grid');
+          document.getElementById('hierbas-titulo').textContent = 'Las ' + total + ' Hierbas del Grimorio';
+          document.getElementById('hierbas-subtitulo').textContent = 'Organizadas en ' + Math.ceil(total/porLote) + ' lotes para una exploración ordenada del conocimiento ancestral';
+          document.getElementById('grimorio-desc').textContent = total + ' plantas. ' + Math.ceil(total/porLote) + ' lotes. Un universo de posibilidades naturales, presentado con rigor científico y respeto por las tradiciones milenarias.';
+          document.getElementById('btn-ver-hierbas').textContent = 'Ver las ' + total + ' Hierbas';
+          grid.innerHTML = '';
+          for(let i=0; i<total; i+=porLote){
+            const grupo = plantas.slice(i, i+porLote);
+            const numLote = Math.floor(i/porLote);
+            const card = document.createElement('div');
+            card.className = 'lote-card';
+            const items = grupo.map((p,j)=>{
+              const img = p.imagen ? 'img/'+p.imagen : 'img/'+p.nombre_remedio.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'')+'.jpg';
+              return '<li><a class="hierba-link" href="grimorio.html?h='+(i+j)+'"><img class="hierba-icon" src="'+img+'" alt="'+p.nombre_remedio+'"/> '+p.nombre_remedio+'</a></li>';
+            }).join('');
+            card.innerHTML = '<div class="lote-header"><span class="lote-num">Lote '+ROMANOS[numLote]+'</span></div><ul>'+items+'</ul>';
+            grid.appendChild(card);
+          }
+        }).catch(()=>{
+          // Si el servidor no responde, mostrar mensaje simple
+          document.getElementById('lotes-grid').innerHTML = '<div class="lote-card lote-cta"><p>Abre el servidor para ver todas las hierbas</p><a href="grimorio.html" class="btn-primary small">Ir al Grimorio</a></div>';
+        });
+      })();
+      </script>
+    </div>
+  </section>
+
+  <!-- SUEÑO & BIENESTAR -->
+  <section id="sueno" class="sueno-section">
+    <style>
+      .sueno-section {
+        background: linear-gradient(160deg, #0a1a0d 0%, #0d2010 60%, #080f0a 100%);
+        padding: 80px 20px 90px;
+        position: relative;
+        overflow: hidden;
+      }
+      .sueno-section::before {
+        content:'';position:absolute;inset:0;
+        background: radial-gradient(ellipse at 30% 40%, rgba(45,110,69,.1) 0%, transparent 60%),
+                    radial-gradient(ellipse at 80% 70%, rgba(212,175,55,.05) 0%, transparent 50%);
+      }
+      .sueno-stars {
+        position:absolute;top:0;left:0;width:100%;height:100%;
+        background-image: radial-gradient(1px 1px at 20% 15%, rgba(255,255,255,.6) 0%, transparent 100%),
+          radial-gradient(1px 1px at 75% 8%, rgba(255,255,255,.4) 0%, transparent 100%),
+          radial-gradient(1.5px 1.5px at 45% 30%, rgba(255,255,255,.5) 0%, transparent 100%),
+          radial-gradient(1px 1px at 10% 55%, rgba(255,255,255,.3) 0%, transparent 100%),
+          radial-gradient(1px 1px at 88% 45%, rgba(255,255,255,.4) 0%, transparent 100%),
+          radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,.3) 0%, transparent 100%),
+          radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.2) 0%, transparent 100%),
+          radial-gradient(1px 1px at 92% 20%, rgba(255,255,255,.4) 0%, transparent 100%);
+        pointer-events:none;
+      }
+      .sueno-container { max-width:1100px;margin:0 auto;position:relative; }
+      .sueno-header { text-align:center;margin-bottom:50px; }
+      .sueno-eyebrow {
+        display:block;font-family:'Cinzel',serif;font-size:.55rem;
+        letter-spacing:5px;text-transform:uppercase;color:#d4af37;margin-bottom:14px;
+      }
+      .sueno-header h2 {
+        font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);
+        color:#d4af37;font-weight:600;margin-bottom:10px;
+      }
+      .sueno-header h2 em { color:#d4af37;font-style:normal; }
+      .sueno-header p {
+        font-family:'EB Garamond',serif;font-size:.9rem;
+        color:rgba(232,224,208,.65);max-width:520px;margin:0 auto;line-height:1.7;
+      }
+      .sueno-grid {
+        display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+        gap:14px;margin-bottom:50px;
+      }
+      .sueno-card {
+        background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);
+        border-radius:6px;padding:20px 14px 16px;text-align:center;
+        transition:transform .2s,background .2s,border-color .2s;
+        cursor:default;
+      }
+      .sueno-card:hover {
+        transform:translateY(-4px);background:rgba(212,175,55,.05);
+        border-color:rgba(212,175,55,.35);
+      }
+      .sueno-card-moon { font-size:1.8rem;margin-bottom:8px; }
+      .sueno-card-name {
+        font-family:'Cinzel',serif;font-size:.72rem;color:#d4af37;
+        font-weight:600;margin-bottom:4px;
+      }
+      .sueno-card-lat {
+        font-family:'EB Garamond',serif;font-style:italic;font-size:.75rem;color:rgba(232,224,208,.45);margin-bottom:8px;
+      }
+      .sueno-card-text {
+        font-family:'EB Garamond',serif;font-size:.85rem;
+        color:rgba(232,224,208,.7);line-height:1.6;
+      }
+      .sueno-rutina {
+        background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);
+        border-radius:6px;padding:28px 32px;max-width:680px;margin:0 auto;
+      }
+      .sueno-rutina-title {
+        font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;
+        text-transform:uppercase;color:#d4af37;margin-bottom:18px;text-align:center;
+      }
+      .sueno-pasos {
+        list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;
+      }
+      .sueno-pasos li {
+        display:flex;gap:12px;align-items:flex-start;
+        font-family:'EB Garamond',serif;font-size:1rem;
+        color:rgba(232,224,208,.8);line-height:1.6;
+      }
+      .sueno-paso-num {
+        font-family:'Cinzel',serif;font-size:.55rem;color:#b8924a;
+        background:rgba(184,146,74,.1);border:1px solid rgba(184,146,74,.25);
+        border-radius:50%;width:22px;height:22px;display:flex;align-items:center;
+        justify-content:center;flex-shrink:0;margin-top:1px;
+      }
+      .sueno-cta { text-align:center;margin-top:30px; }
+      .sueno-cta a {
+        font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:2px;
+        text-transform:uppercase;color:#b8924a;border:1px solid rgba(184,146,74,.4);
+        padding:10px 24px;border-radius:20px;text-decoration:none;
+        transition:background .2s,color .2s;display:inline-block;
+      }
+      .sueno-cta a:hover { background:rgba(184,146,74,.15);color:#d4af37; }
+    </style>
+    <div class="sueno-stars"></div>
+    <div class="sueno-container">
+      <div class="sueno-header">
+        <span class="sueno-eyebrow">🌙 Rituales nocturnos · Plantas de la noche</span>
+        <h2>Sueño &amp; <em>Bienestar</em></h2>
+        <p>La naturaleza tiene sus propios somníferos. Seis plantas aliadas del descanso profundo que la tradición herbal lleva siglos conociendo.</p>
+      </div>
+      <div class="sueno-grid">
+        <div class="sueno-card">
+          <div class="sueno-card-moon">🌿</div>
+          <div class="sueno-card-name">Valeriana</div>
+          <div class="sueno-card-lat">Valeriana officinalis</div>
+          <div class="sueno-card-text">Raíz inductora del sueño. Acorta el tiempo de conciliación y mejora la calidad del descanso sin crear dependencia.</div>
+        </div>
+        <div class="sueno-card">
+          <div class="sueno-card-moon">🌸</div>
+          <div class="sueno-card-name">Pasiflora</div>
+          <div class="sueno-card-lat">Passiflora incarnata</div>
+          <div class="sueno-card-text">Flor de la pasión. Calma la mente ansiosa, reduce la agitación nocturna y promueve un sueño tranquilo y reparador.</div>
+        </div>
+        <div class="sueno-card">
+          <div class="sueno-card-moon">🍃</div>
+          <div class="sueno-card-name">Melisa</div>
+          <div class="sueno-card-lat">Melissa officinalis</div>
+          <div class="sueno-card-text">Bálsamo de limón. Reduce el estrés y la agitación. Excelente combinada con valeriana para potenciar el efecto sedante.</div>
+        </div>
+        <div class="sueno-card">
+          <div class="sueno-card-moon">🌼</div>
+          <div class="sueno-card-name">Tila</div>
+          <div class="sueno-card-lat">Tilia europaea</div>
+          <div class="sueno-card-text">Flores de tilo. Relajante del sistema nervioso, ideal para noches de tensión emocional, lleva generaciones en las casas europeas.</div>
+        </div>
+        <div class="sueno-card">
+          <div class="sueno-card-moon">💜</div>
+          <div class="sueno-card-name">Lavanda</div>
+          <div class="sueno-card-lat">Lavandula angustifolia</div>
+          <div class="sueno-card-text">El aroma de la lavanda reduce la frecuencia cardíaca y la presión sanguínea, preparando al cuerpo para el descanso.</div>
+        </div>
+        <div class="sueno-card">
+          <div class="sueno-card-moon">🌾</div>
+          <div class="sueno-card-name">Lúpulo</div>
+          <div class="sueno-card-lat">Humulus lupulus</div>
+          <div class="sueno-card-text">Conos femeninos. Sedante suave con larga tradición en fitoterapia europea. Eficaz para el insomnio leve y la inquietud nocturna.</div>
+        </div>
+      </div>
+      <div class="sueno-rutina">
+        <p class="sueno-rutina-title">✦ Rutina herbal nocturna ✦</p>
+        <ul class="sueno-pasos">
+          <li><span class="sueno-paso-num">1</span><span><strong style="color:#d4af37">21:00 h</strong> — Apaga pantallas. Prepara una infusión de tila y melisa en partes iguales (1 cda de cada una en 300 ml). Deja reposar 8 min tapado.</span></li>
+          <li><span class="sueno-paso-num">2</span><span><strong style="color:#d4af37">21:30 h</strong> — Baño templado con gotas de aceite esencial de lavanda. El descenso de temperatura corporal tras el baño induce somnolencia natural.</span></li>
+          <li><span class="sueno-paso-num">3</span><span><strong style="color:#d4af37">22:00 h</strong> — Decocción de valeriana (½ cda de raíz triturada en 250 ml). Bebe lentamente mientras lees o escribes. Sin pantallas.</span></li>
+          <li><span class="sueno-paso-num">4</span><span><strong style="color:#d4af37">22:30 h</strong> — Pon una bolsita de lavanda y lúpulo bajo la almohada. El aroma continúa trabajando durante las primeras horas de sueño.</span></li>
+        </ul>
+      </div>
+      <div class="sueno-cta">
+        <a href="grimorio.html">Ver fichas de estas plantas en el Grimorio →</a>
       </div>
     </div>
   </section>
 
+  <!-- ESCUELA HERBAL -->
+  <section id="escuela" class="escuela-section">
+    <style>
+      .escuela-section {
+        background: linear-gradient(160deg, #0d2010 0%, #0a1a0d 60%, #080f0a 100%);
+        padding: 80px 20px 90px;
+        position: relative;
+        overflow: hidden;
+      }
+      .escuela-section::before {
+        content:'';position:absolute;inset:0;
+        background: radial-gradient(ellipse at 70% 30%, rgba(50,100,40,.1) 0%, transparent 55%);
+      }
+      .escuela-container { max-width:1100px;margin:0 auto;position:relative; }
+      .escuela-header { text-align:center;margin-bottom:50px; }
+      .escuela-eyebrow {
+        display:block;font-family:'Cinzel',serif;font-size:.55rem;
+        letter-spacing:5px;text-transform:uppercase;color:#d4af37;margin-bottom:14px;
+      }
+      .escuela-header h2 {
+        font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);
+        color:#d4af37;font-weight:600;margin-bottom:10px;
+      }
+      .escuela-header h2 em { color:#d4af37;font-style:normal; }
+      .escuela-header p {
+        font-family:'EB Garamond',serif;font-size:1rem;
+        color:rgba(232,224,208,.65);max-width:540px;margin:0 auto;line-height:1.7;
+      }
+      .escuela-grid {
+        display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+        gap:16px;
+      }
+      .escuela-card {
+        background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.2);
+        border-radius:6px;padding:28px 22px 24px;
+        transition:transform .2s,background .2s,border-color .2s;
+      }
+      .escuela-card:hover {
+        transform:translateY(-4px);background:rgba(212,175,55,.05);
+        border-color:rgba(212,175,55,.35);
+      }
+      .escuela-num {
+        font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:3px;
+        text-transform:uppercase;color:#d4af37;margin-bottom:12px;display:block;
+      }
+      .escuela-icon { font-size:2rem;margin-bottom:10px;display:block; }
+      .escuela-card-title {
+        font-family:'Cinzel',serif;font-size:.85rem;color:#d4af37;
+        font-weight:600;margin-bottom:10px;line-height:1.3;
+      }
+      .escuela-card-text {
+        font-family:'EB Garamond',serif;font-size:.95rem;
+        color:rgba(232,224,208,.7);line-height:1.7;margin-bottom:14px;
+      }
+      .escuela-puntos {
+        list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;
+      }
+      .escuela-puntos li {
+        font-family:'EB Garamond',serif;font-size:.9rem;
+        color:rgba(232,224,208,.6);padding-left:14px;position:relative;line-height:1.5;
+      }
+      .escuela-puntos li::before {
+        content:'✦';position:absolute;left:0;color:#d4af37;font-size:.45rem;top:.35rem;
+      }
+    </style>
+    <div class="escuela-container">
+      <div class="escuela-header">
+        <span class="escuela-eyebrow">📚 Formación · Conocimiento herbal</span>
+        <h2><em>Escuela</em> Herbal</h2>
+        <p>Aprende a sanar con la sabiduría de las plantas. Cuatro módulos esenciales para iniciarte en la fitoterapia práctica desde casa.</p>
+      </div>
+      <div class="escuela-grid">
+
+        <div class="escuela-card">
+          <span class="escuela-num">Módulo I</span>
+          <span class="escuela-icon">🔬</span>
+          <div class="escuela-card-title">Por qué funcionan las hierbas</div>
+          <div class="escuela-card-text">Las plantas medicinales contienen compuestos bioactivos resultado de millones de años de evolución. La ciencia confirma lo que la tradición ya sabía.</div>
+          <ul class="escuela-puntos">
+            <li>Fitoquímica básica: alcaloides, flavonoides y terpenos</li>
+            <li>Cómo actúan sobre el sistema nervioso y el inmune</li>
+            <li>Sinergias entre compuestos: por qué la planta entera supera al extracto</li>
+            <li>Evidencia científica vs. tradición: los dos pilares válidos</li>
+          </ul>
+        </div>
+
+        <div class="escuela-card">
+          <span class="escuela-num">Módulo II</span>
+          <span class="escuela-icon">🧪</span>
+          <div class="escuela-card-title">Cómo preparar remedios en casa</div>
+          <div class="escuela-card-text">Conocer la planta es solo el principio. La forma de preparación determina qué compuestos extraes y cómo actúan. Aquí aprendes las técnicas fundamentales.</div>
+          <ul class="escuela-puntos">
+            <li>Infusiones y decocciones: temperaturas, tiempos y proporciones</li>
+            <li>Tinturas y macerados alcohólicos para conservar el remedio</li>
+            <li>Ungüentos y cataplasmas para uso tópico</li>
+            <li>Maceración en frío para plantas mucilaginosas</li>
+          </ul>
+        </div>
+
+        <div class="escuela-card">
+          <span class="escuela-num">Módulo III</span>
+          <span class="escuela-icon">⚗️</span>
+          <div class="escuela-card-title">El arte de las sinergias herbales</div>
+          <div class="escuela-card-text">Las combinaciones herbales inteligentes pueden multiplicar el efecto de cada planta individual. Este es el secreto mejor guardado de la fitoterapia avanzada.</div>
+          <ul class="escuela-puntos">
+            <li>Combinar valeriana + pasiflora para el insomnio severo</li>
+            <li>Jengibre + cúrcuma + pimienta: la tríada antiinflamatoria</li>
+            <li>Saúco + equinácea + jengibre para resfriados</li>
+            <li>Reglas de compatibilidad e incompatibilidad entre plantas</li>
+          </ul>
+        </div>
+
+        <div class="escuela-card">
+          <span class="escuela-num">Módulo IV</span>
+          <span class="escuela-icon">🌱</span>
+          <div class="escuela-card-title">Cultiva tu propio jardín herbal</div>
+          <div class="escuela-card-text">Tener tus propias plantas medicinales es la culminación del conocimiento herbal. Independencia terapéutica a un paso de tu cocina o balcón.</div>
+          <ul class="escuela-puntos">
+            <li>Las 10 plantas imprescindibles para un botiquín vivo</li>
+            <li>Cultivo en maceta: suelo, riego y luz para cada especie</li>
+            <li>Cuándo y cómo cosechar para máxima potencia terapéutica</li>
+            <li>Secado y conservación correcta del material vegetal</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER LEGAL -->
   <section class="disclaimer">
     <div class="container">
       <div class="disclaimer-box">
@@ -185,6 +456,7 @@
     </div>
   </section>
 
+  <!-- CONTACTO -->
   <section id="contacto" class="contacto">
     <div class="container">
       <h2 class="section-title">Contacto</h2>
@@ -198,19 +470,40 @@
           <p id="form-msg" style="display:none; color:#d4af37; margin-top:1rem;">✅ Mensaje enviado. Te respondemos pronto.</p>
         </form>
         <div class="contacto-info">
-          <div class="info-item"><span>📧</span><div><strong>Correo</strong><p>josepsaludnatura@gmail.com</p></div></div>
-          <div class="info-item"><span>🌐</span><div><strong>Dominio Principal</strong><p>saludnaturalezamundo.com</p></div></div>
-          <div class="info-item"><span>🇦🇷</span><div><strong>Dominio Local</strong><p>saludnatura.com.ar</p></div></div>
-          <a href="https://wa.me/5491153255551" class="btn-whatsapp" target="_blank">💬 Escribinos por WhatsApp</a>
+          <div class="info-item">
+            <span>📧</span>
+            <div>
+              <strong>Correo</strong>
+              <p>josepsaludnatura@gmail.com</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span>🌐</span>
+            <div>
+              <strong>Dominio Principal</strong>
+              <p>saludnaturamundo.com</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span>🇦🇷</span>
+            <div>
+              <strong>Dominio Local</strong>
+              <p>saludnatura.com.ar</p>
+            </div>
+          </div>
+          <a href="https://wa.me/549XXXXXXXXXX" class="btn-whatsapp" target="_blank">
+            💬 Escribinos por WhatsApp
+          </a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-logo">
-        <img src="/static/img/logo.jpg" alt="Logo Salud Natura" class="footer-logo-img"/>
+        <img src="logo.jpg" alt="Logo Salud Natura" class="footer-logo-img"/>
         <span>Salud Natura</span>
       </div>
       <p class="footer-quote">"El que conoce a los demás es sabio. El que se conoce a sí mismo es iluminado." — Lao Tsé</p>
@@ -218,6 +511,6 @@
     </div>
   </footer>
 
-  <script src="/static/js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -943,7 +943,7 @@ html,body{height:100%;font-family:'Lato',sans-serif;background:var(--verde);over
       <!-- PÁGINA IZQUIERDA: FOTO -->
       <div class="page-left" id="pageLeft">
         <p class="lote-badge" id="loteBadge">Lote I</p>
-        <img class="herb-photo" id="herbPhoto" src="" alt="Hierba"/>
+        <img class="herb-photo" id="herbPhoto" src="" alt="Hierba" onerror="this.src='/static/img/planta_default.svg'; this.onerror=null;"/>
 
         <!-- Botón imprimir/descargar ficha -->
         <button class="btn-print" onclick="imprimirFicha()">
@@ -1754,7 +1754,7 @@ function mapearPlanta(p, idx){
     lat:    p.planta_base || '',
     lote:   loteLabel,
     loteDesc: LOTE_DESC[loteNum] || loteLabel,
-    img:    p.imagen ? `/static/img/${p.imagen}` : `/static/img/${normImg(p.nombre_remedio)}.jpg`,
+    img:    p.imagen ? `/static/img/${p.imagen}` : `/static/img/planta_default.svg`,
     props:  props,
     usos:   p.dosificacion || '',
     nota:   p.contraindicaciones || '',

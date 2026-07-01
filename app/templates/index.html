@@ -21,17 +21,19 @@
           <span class="logo-sub">Sabiduría Ancestral</span>
         </div>
       </div>
-      <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#pilares">Filosofía</a></li>
-        <li><a href="#grimorio">El Grimorio</a></li>
-        <li><a href="#hierbas">Hierbas</a></li>
-        <li><a href="/botiquin">Botiquín</a></li>
-        <li><a href="/taller">Taller</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <a href="/grimorio#registro" class="btn-registro-nav" onclick="sessionStorage.setItem('abrirRegistro','1')">Registrarse</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#pilares">Filosofía</a></li>
+          <li><a href="#grimorio">El Grimorio</a></li>
+          <li><a href="#hierbas">Hierbas</a></li>
+          <li><a href="/botiquin">Botiquín</a></li>
+          <li><a href="/taller">Taller</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li class="nav-registro"><a href="/grimorio#registro" class="btn-registro-nav" onclick="sessionStorage.setItem('abrirRegistro','1')">Registrarse</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+      </div>
     </nav>
   </header>
 
@@ -142,8 +144,8 @@
             const card = document.createElement('div');
             card.className = 'lote-card';
             const items = grupo.map((p,j)=>{
-              const img = p.imagen ? '/static/img/'+p.imagen : '/static/img/'+p.nombre_remedio.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'')+'.jpg';
-              return '<li><a class="hierba-link" href="/grimorio?h='+(i+j)+'"><img class="hierba-icon" src="'+img+'" alt="'+p.nombre_remedio+'"/> '+p.nombre_remedio+'</a></li>';
+              const img = p.imagen ? '/static/img/'+p.imagen : '/static/img/planta_default.svg';
+              return '<li><a class="hierba-link" href="/grimorio?h='+(i+j)+'"><img class="hierba-icon" src="'+img+'" alt="'+p.nombre_remedio+'" onerror="this.src=\'/static/img/planta_default.svg\'; this.onerror=null;"/> '+p.nombre_remedio+'</a></li>';
             }).join('');
             card.innerHTML = '<div class="lote-header"><span class="lote-num">Lote '+ROMANOS[numLote]+'</span></div><ul>'+items+'</ul>';
             grid.appendChild(card);
